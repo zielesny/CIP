@@ -35,13 +35,13 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 Achim Zielesny, Computational Intelligence Packages (CIP) for Mathematica, Version 3.0, GNWI mbH, Oer-Erkenschwick, Germany, 2018.
 
 # Textbook
-**2nd edition**
+**2nd edition:**
 
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.](https://dx.doi.org/10.1007/978-3-319-32545-3)
 
 The 2nd edition uses CIP 2.0 for all calculations. File **Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip** contains the complete textbook examples and applications.
 
-**1st edition**
+**1st edition:**
 
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2011, Springer: Intelligent Systems Reference Library, Volume 18.](http://dx.doi.org/10.1007/978-3-642-21280-2)
 
