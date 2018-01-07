@@ -55,3 +55,6 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 **CIP_1.1.zip** (for Mathematica 7 or higher) - CIP 1.1 adds MPR and several improvements (see *About.txt*).
 
 **CIP_1.0.zip** (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
+
+# Acknowledgements
+The continous support of [GNWI - Gesellschaft für naturwissenschaftliche Informatik mbH](http://www.gnwi.de) is gratefully acknowledged.
