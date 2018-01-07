@@ -75,7 +75,7 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *CIP_2.0_MinimalModelForWDBCDataClassification_SequentialCalculation.nb* - minimal model construction for the WDBC data using sequential calculations (Mathematica notebook that uses CIP 2.0).
 
-*CIP_1.2_DocumentCenteredDataAnalysisWorkflows.pdf* - discussion of document-centered data analysis workflows with CIP 1.2 (and corresponding Mathematica notebook *CIP_1.2_DocumentCenteredDataAnalysisWorkflowsNotebook.nb* of the discussed example).
+*CIP_1.2_DocumentCenteredDataAnalysisWorkflows.pdf* - discussion of document-centered data analysis workflows with CIP 1.2 (and corresponding Mathematica notebook *CIP_1.2_DocumentCenteredDataAnalysisWorkflowsNotebook.nb* of the discussed example that uses CIP 1.2).
 
 *CIP_1.2_ScientificDataAnalysis.pdf/nb* - overview and examples of CIP 1.2 functions for scientific data analysis (PDF document and Mathematica notebook that uses CIP 1.2).
 
