@@ -35,13 +35,17 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 Achim Zielesny, Computational Intelligence Packages (CIP) for Mathematica, Version 3.0, GNWI mbH, Oer-Erkenschwick, Germany, 2018.
 
 # Textbook
+**2nd edition**
+
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.](https://dx.doi.org/10.1007/978-3-319-32545-3)
 
-The 2nd edition uses CIP 2.0 for all calculations.
+The 2nd edition uses CIP 2.0 for all calculations. File **Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip** contains the complete textbook examples and applications.
+
+**1st edition**
 
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2011, Springer: Intelligent Systems Reference Library, Volume 18.](http://dx.doi.org/10.1007/978-3-642-21280-2)
 
-The 1st edition uses CIP 1.0 for all calculations.
+The 1st edition uses CIP 1.0 for all calculations. File **Zielesny_FromCurveFittingToMachineLearning_Code.zip** contains the complete textbook examples and applications.
 
 From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
 
@@ -55,6 +59,10 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 **CIP_1.1.zip** (for Mathematica 7 or higher) - CIP 1.1 adds MPR and several improvements (see *About.txt*).
 
 **CIP_1.0.zip** (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
+
+**Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip** - Complete CIP 2.0 examples and applications of 2nd edition of textbook above.
+
+**Zielesny_FromCurveFittingToMachineLearning_Code.zip** - Complete CIP 1.0 examples and applications of 1st edition of textbook above.
 
 # Acknowledgements
 The support of [GNWI - Gesellschaft für naturwissenschaftliche Informatik mbH](http://www.gnwi.de) is gratefully acknowledged.
