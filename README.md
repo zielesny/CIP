@@ -69,13 +69,19 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 **Tutorials and examples**
 
+*CIP_3.0_DeepLearningWithMLP.nb* - simple CIP 3.0 deep learning example  (Mathematica notebook that uses CIP 3.0).
+
+*CIP_2.0_MinimalModelForWDBCDataClassification_ParallelCalculation.nb* - minimal model construction for the WDBC data using parallelized calculations (Mathematica notebook that uses CIP 2.0).
+
+*CIP_2.0_MinimalModelForWDBCDataClassification_SequentialCalculation.nb* - minimal model construction for the WDBC data using sequential calculations (Mathematica notebook that uses CIP 2.0).
+
 *CIP_1.2_DocumentCenteredDataAnalysisWorkflows.pdf* - discussion of document-centered data analysis workflows with CIP 1.2 (and corresponding Mathematica notebook *CIP_1.2_DocumentCenteredDataAnalysisWorkflowsNotebook.nb* of the discussed example).
 
-*CIP_1.2_ScientificDataAnalysis.pdf/nb* - overview and examples of CIP 1.2 functions for scientific data analysis (PDF document and Mathematica notebook).
+*CIP_1.2_ScientificDataAnalysis.pdf/nb* - overview and examples of CIP 1.2 functions for scientific data analysis (PDF document and Mathematica notebook that uses CIP 1.2).
 
 *CIP_1.1_EnteringNonLinearityWithMPR.nb* - entering non-linearity with MPR (Mathematica notebook that uses CIP 1.1).
 
-*CIP_1.1_MinimalModelForWDBCDataClassification.nb* - minimal model for the WDBC data (Mathematica notebook that uses CIP 1.1).
+*CIP_1.1_MinimalModelForWDBCDataClassification.nb* - minimal model construction for the WDBC data (Mathematica notebook that uses CIP 1.1).
 
 *CIP_1.1_QSPRwithMLR.nb* - QSPR with MLR (Mathematica notebook that uses CIP 1.1).
 
