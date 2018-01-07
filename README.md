@@ -30,6 +30,10 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 
 **SVM** - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks. The package uses the Utility, Graphics, DataTransformation and Cluster packages.
 
+# Citation
+
+Achim Zielesny, Computational Intelligence Packages (CIP) for Mathematica, Version 3.0, GNWI mbH, Oer-Erkenschwick, Germany, 2018.
+
 # Textbook
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.](https://dx.doi.org/10.1007/978-3-319-32545-3)
 
@@ -41,6 +45,13 @@ The 1st edition uses CIP 1.0 for all calculations.
 
 From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
 
-# Additional information and files
+# File information
+**CIP_3.0.zip** (for Mathematica 11 or higher) - Adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements(see *About.txt*).
 
+**CIP_2.0.zip** (for Mathematica 9 or higher) - Adds parallelized calculation support and minor improvements (see *About.txt*).
 
+**CIP_1.2.zip** (for Mathematica 7 or higher) - Adds minor improvements (see *About.txt*).
+
+**CIP_1.1.zip** (for Mathematica 7 or higher) - Adds MPR and several improvements (see *About.txt*).
+
+**CIP_1.0.zip** (for Mathematica 7 or higher) - Basic operational release.
