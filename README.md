@@ -49,7 +49,9 @@ The 1st edition uses CIP 1.0 for all calculations. File *Zielesny_FromCurveFitti
 
 From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
 
-# File information
+# Information about uploaded files
+**Code**
+
 *CIP_3.0.zip* (for Mathematica 11 or higher) - CIP 3.0 adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
 
 *CIP_2.0.zip* (for Mathematica 9 or higher) - CIP 2.0 adds parallelized calculation support and minor improvements (see *About.txt*).
@@ -60,9 +62,13 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *CIP_1.0.zip* (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
 
+**Textbook supplementary information**
+
 *Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip* - Complete CIP 2.0 examples and applications of 2nd edition of textbook above.
 
 *Zielesny_FromCurveFittingToMachineLearning_Code.zip* - Complete CIP 1.0 examples and applications of 1st edition of textbook above.
+
+**Tutorials and examples**
 
 *CIP_1.2_DocumentCenteredDataAnalysisWorkflows.pdf* - Discussion of document-centered data analysis workflows with CIP 1.2 (and corresponding Mathematica notebook of the discussed example: *CIP_1.2_DocumentCenteredDataAnalysisWorkflowsNotebook.nb*).
 
