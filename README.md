@@ -76,11 +76,11 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *CIP_1.1_EnteringNonLinearityWithMPR.nb* - entering non-linearity with MPR (Mathematica notebook that uses CIP 1.1).
 
-*CIP_1.1_MinimalModelForWDBCDataClassification.nb* - minimal model for the WDBC Data (Mathematica notebook that uses CIP 1.1).
+*CIP_1.1_MinimalModelForWDBCDataClassification.nb* - minimal model for the WDBC data (Mathematica notebook that uses CIP 1.1).
 
 *CIP_1.1_QSPRwithMLR.nb* - QSPR with MLR (Mathematica notebook that uses CIP 1.1).
 
-*CIP_1.1_QSPRwithSmallDataSet.nb* - QSPR with small Data Set (Mathematica notebook that uses CIP 1.1).
+*CIP_1.1_QSPRwithSmallDataSet.nb* - QSPR with small data set (Mathematica notebook that uses CIP 1.1).
 
 *CIP_1.1_DataCleaningOrSplitting.nb* - data cleaning or splitting (Mathematica notebook that uses CIP 1.1).
 
