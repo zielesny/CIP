@@ -8,27 +8,27 @@ The structure of CIP calculations follows an intuitive and unified Get-Fit-Show/
 The CIP design goals were neither maximum speed nor minimum memory consumption but an intuitive, unified and robust access to high-level functions (not only) for educational purposes. The library packages may be used as a starting point for customized and tailored extensions.
 
 # Packages
-*Utility* - basic package that collects several general methods used by other packages like GetMeanSquaredError which is used by all machine learning related packages.
+*Utility* - basic package that collects several general methods used by other packages like GetMeanSquaredError.
 
-*ExperimentalData* - provides test data. It makes use of the packages Utility, DataTransformation and CurveFit.
+*ExperimentalData* - provides test data.
 
-*DataTransformation* - performs many internal data transformations for different purposes, e.g. all data that are passed to a machine learning method are scaled before the operation (like ScaleDataMatrix) and re-scaled afterwards (like ScaleDataMatrixReverse). The DataTransformation package comprehends all these methods in a single package. It uses the Utility package.
+*DataTransformation* - performs internal data transformations for different purposes, e.g. all data that are passed to a machine learning method are scaled before the operation (like ScaleDataMatrix) and re-scaled afterwards (like ScaleDataMatrixReverse).
 
-*Graphics* - tailors Mathematica's graphical functions for diagrams and graphical representations. It uses the Utility and DataTransformation packages.
+*Graphics* - tailors Mathematica's graphical functions for diagrams and graphical representations.
 
-*CalculatedData* - complements the ExperimentalData package with methods for the generation of simulated data like normally distributed xy-error data around a function for curve fitting with GetXyErrorData. It uses methods from the Utility and DataTransformation packages.
+*CalculatedData* - complements the ExperimentalData package with methods for the generation of simulated data like normally distributed xy-error data around a function for curve fitting with GetXyErrorData.
 
-*CurveFit* - tailors Mathematica's built in curve fitting method (NonlinearModelFit) for least-squares minimization and adds a smoothing cubic splines support. It uses the Utility, Graphics, DataTransformation and CalculatedData packages.
+*CurveFit* - tailors Mathematica's built in curve fitting method (NonlinearModelFit) for least-squares minimization and adds a smoothing cubic splines support.
 
-*Cluster* - tailors Mathematica's built in FindClusters method for clustering purposes and adds an Adaptive Resonance Theory (ART-2a) support. The package uses the Utility, Graphics and DataTransformation packages.
+*Cluster* - tailors Mathematica's built in FindClusters method for clustering purposes and adds an Adaptive Resonance Theory (ART-2a) support.
 
-*MLR/MPR* - tailors Mathematica's built in Fit method for multiple linear/polynomial regression (MLR/MPR). The package uses the Utility, Graphics, DataTransformation and Cluster packages.
+*MLR / MPR* - tailor Mathematica's built in Fit method for multiple linear/polynomial regression (MLR/MPR).
 
-*MLP1* (CIP 3.0) / *Perceptron* (CIP 2.0 and previous) - provides optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The package also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization. It uses the Utility, Graphics, DataTransformation and Cluster packages.
+*MLP1* (CIP 3.0) / *Perceptron* (CIP 2.0 and previous) - provide optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The packages also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization.
 
-*MLP2 / MLP3 / MLP* - provides optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. It uses the Utility, Graphics, DataTransformation and Cluster packages.
+*MLP2 / MLP3 / MLP* - provide optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks.
 
-*SVM* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks. The package uses the Utility, Graphics, DataTransformation and Cluster packages.
+*SVM* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks.
 
 # Citation
 
