@@ -26,8 +26,19 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 
 **MLP1** (Version 3.0)/**Perceptron** (Version 2.0 and previous) - provides optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The package also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization. It uses the Utility, Graphics, DataTransformation and Cluster packages.
 
-**MLP2/MLP3/MLP** - provides optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The package also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization. It uses the Utility, Graphics, DataTransformation and Cluster packages.
+**MLP2/MLP3/MLP** - provides optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. It uses the Utility, Graphics, DataTransformation and Cluster packages.
 
 **SVM** - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks. The package uses the Utility, Graphics, DataTransformation and Cluster packages.
 
-# Additional information
+# Textbook
+[Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.](https://dx.doi.org/10.1007/978-3-319-32545-3)
+The 2nd edition uses CIP 2.0 for all calculations.
+
+[Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2011, Springer: Intelligent Systems Reference Library, Volume 109.](http://dx.doi.org/10.1007/978-3-642-21280-2)
+The 1st edition uses CIP 1.0 for all calculations.
+
+From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
+
+# Additional information and files
+
+
