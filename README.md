@@ -46,12 +46,12 @@ The 1st edition uses CIP 1.0 for all calculations.
 From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
 
 # File information
-**CIP_3.0.zip** (for Mathematica 11 or higher) - Adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
+**CIP_3.0.zip** (for Mathematica 11 or higher) - CIP 3.0 adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
 
-**CIP_2.0.zip** (for Mathematica 9 or higher) - Adds parallelized calculation support and minor improvements (see *About.txt*).
+**CIP_2.0.zip** (for Mathematica 9 or higher) - CIP 2.0 adds parallelized calculation support and minor improvements (see *About.txt*).
 
-**CIP_1.2.zip** (for Mathematica 7 or higher) - Adds minor improvements (see *About.txt*).
+**CIP_1.2.zip** (for Mathematica 7 or higher) - CIP 1.2 adds minor improvements (see *About.txt*).
 
-**CIP_1.1.zip** (for Mathematica 7 or higher) - Adds MPR and several improvements (see *About.txt*).
+**CIP_1.1.zip** (for Mathematica 7 or higher) - CIP 1.1 adds MPR and several improvements (see *About.txt*).
 
-**CIP_1.0.zip** (for Mathematica 7 or higher) - Basic operational release.
+**CIP_1.0.zip** (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
