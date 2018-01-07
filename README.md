@@ -57,4 +57,4 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 **CIP_1.0.zip** (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
 
 # Acknowledgements
-The continous support of [GNWI - Gesellschaft für naturwissenschaftliche Informatik mbH](http://www.gnwi.de) is gratefully acknowledged.
+The support of [GNWI - Gesellschaft für naturwissenschaftliche Informatik mbH](http://www.gnwi.de) is gratefully acknowledged.
