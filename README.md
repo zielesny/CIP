@@ -31,7 +31,10 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 **SVM** - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks. The package uses the Utility, Graphics, DataTransformation and Cluster packages.
 
 # Textbook
+ <a href="https://dx.doi.org/10.1007/978-3-319-32545-3" target="_blank">Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.</a>
+ 
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2nd (updated and extended) Edition 2016, Springer: Intelligent Systems Reference Library, Volume 109.](https://dx.doi.org/10.1007/978-3-319-32545-3)
+
 The 2nd edition uses CIP 2.0 for all calculations.
 
 [Achim Zielesny, From Curve Fitting to Machine Learning: An Illustrative Guide to Scientific Data Analysis and Computational Intelligence, 2011, Springer: Intelligent Systems Reference Library, Volume 109.](http://dx.doi.org/10.1007/978-3-642-21280-2)
