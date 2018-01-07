@@ -1,5 +1,4 @@
-# CIP
-**Computational Intelligence Packages (CIP) for Mathematica**
+# Computational Intelligence Packages (CIP) for Mathematica
 
 CIP is an open-source high-level function library for (non-linear) curve fitting and data smoothing (with cubic splines), clustering (k-medoids, ART-2a) and machine learning (multiple linear/polynomial regression, feed-forward perceptron-type shallow and deep neural networks and support vector machines). In addition it provides several heuristics for the selection of training and test data or methods to estimate the relevance of data input components. CIP is built on top of the computing platform Mathematica to exploit its algorithmic and graphical capabilities.
 
