@@ -24,9 +24,9 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 
 *MLR/MPR* - tailors Mathematica's built in Fit method for multiple linear/polynomial regression (MLR/MPR). The package uses the Utility, Graphics, DataTransformation and Cluster packages.
 
-*MLP1* (Version 3.0)/*Perceptron* (Version 2.0 and previous) - provides optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The package also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization. It uses the Utility, Graphics, DataTransformation and Cluster packages.
+*MLP1* (CIP 3.0) / *Perceptron* (CIP 2.0 and previous) - provides optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The package also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization. It uses the Utility, Graphics, DataTransformation and Cluster packages.
 
-*MLP2/MLP3/MLP* - provides optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. It uses the Utility, Graphics, DataTransformation and Cluster packages.
+*MLP2 / MLP3 / MLP* - provides optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). It utilizes Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. It uses the Utility, Graphics, DataTransformation and Cluster packages.
 
 *SVM* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks. The package uses the Utility, Graphics, DataTransformation and Cluster packages.
 
