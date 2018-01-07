@@ -64,5 +64,9 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *Zielesny_FromCurveFittingToMachineLearning_Code.zip* - Complete CIP 1.0 examples and applications of 1st edition of textbook above.
 
+*CIP_1.2_DocumentCenteredDataAnalysisWorkflows.pdf* - Discussion of document-centered data analysis workflows with CIP 1.2 (and corresponding Mathematica notebook of the discussed example: *CIP_1.2_DocumentCenteredDataAnalysisWorkflowsNotebook.nb*).
+
+*CIP_1.2_ScientificDataAnalysis.pdf/nb* - Overview and examples of CIP 1.2 functions for scientific data analysis (PDF document and Mathematica notebook)
+
 # Acknowledgements
 The support of [GNWI - Gesellschaft für naturwissenschaftliche Informatik mbH](http://www.gnwi.de) is gratefully acknowledged.
