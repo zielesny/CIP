@@ -54,8 +54,8 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *Zielesny_FromCurveFittingToMachineLearning_Code.zip* - complete CIP 1.0 examples and applications of 1st edition of textbook above.
 
-# Old code and supplement
-**Old code**
+# Old versions and supplement
+**Old versions**
 
 *CIP_3.0.zip* (for Mathematica 11 or higher) - CIP 3.0 adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
 
