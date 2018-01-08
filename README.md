@@ -6,28 +6,28 @@ The structure of CIP calculations follows an intuitive and unified Get-Fit-Show/
 
 The CIP design goals were neither maximum speed nor minimum memory consumption but an intuitive, unified and robust access to high-level functions (not only) for educational purposes. The library packages may be used as a starting point for customized and tailored extensions.
 
-# Packages
-*Utility* - basic package that collects several general methods used by other packages like GetMeanSquaredError.
+# Packages in CIP folder
+*Utility.m* - basic package that collects several general methods used by other packages like GetMeanSquaredError.
 
-*ExperimentalData* - provides test data.
+*ExperimentalData.m* - provides test data.
 
-*DataTransformation* - performs internal data transformations for different purposes, e.g. all data that are passed to a machine learning method are scaled before the operation (like ScaleDataMatrix) and re-scaled afterwards (like ScaleDataMatrixReverse).
+*DataTransformation.m* - performs internal data transformations for different purposes, e.g. all data that are passed to a machine learning method are scaled before the operation (like ScaleDataMatrix) and re-scaled afterwards (like ScaleDataMatrixReverse).
 
-*Graphics* - tailors Mathematica's graphical functions for diagrams and graphical representations.
+*Graphics.m* - tailors Mathematica's graphical functions for diagrams and graphical representations.
 
-*CalculatedData* - complements the ExperimentalData package with methods for the generation of simulated data like normally distributed xy-error data around a function for curve fitting with GetXyErrorData.
+*CalculatedData.m* - complements the ExperimentalData package with methods for the generation of simulated data like normally distributed xy-error data around a function for curve fitting with GetXyErrorData.
 
-*CurveFit* - tailors Mathematica's built in curve fitting method (NonlinearModelFit) for least-squares minimization and adds a smoothing cubic splines support.
+*CurveFit.m* - tailors Mathematica's built in curve fitting method (NonlinearModelFit) for least-squares minimization and adds a smoothing cubic splines support.
 
-*Cluster* - tailors Mathematica's built in FindClusters method for clustering purposes and adds an Adaptive Resonance Theory (ART-2a) support.
+*Cluster.m* - tailors Mathematica's built in FindClusters method for clustering purposes and adds an Adaptive Resonance Theory (ART-2a) support.
 
-*MLR / MPR* - tailor Mathematica's built in Fit method for multiple linear/polynomial regression (MLR/MPR).
+*MLR.m / MPR.m* - tailor Mathematica's built in Fit method for multiple linear/polynomial regression (MLR/MPR).
 
-*MLP1* (CIP 3.0) / *Perceptron* (CIP 2.0 and previous) - provide optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The packages also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization.
+*MLP1.m* (CIP 3.0) / *Perceptron.m* (CIP 2.0 and previous) - provide optimization algorithms for a shallow three-layer perceptron-type neural networks (with one hidden neuron layer). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks. The packages also provides a backpropagation plus momentum minimization and a classical genetic algorithm based minimization.
 
-*MLP2 / MLP3 / MLP* - provide optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks.
+*MLP2.m / MLP3.m / MLP.m* - provide optimization algorithms for deep four/five/arbitrary-layer perceptron-type neural networks (with two/three/arbitrary hidden neuron layers). They utilize Mathematica's FindMinimum (ConjugateGradient) or NMinimize (DifferentialEvolution) methods for minimization tasks.
 
-*SVM* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks.
+*SVM.m* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks.
 
 # Citation
 
@@ -48,8 +48,14 @@ The 1st edition uses CIP 1.0 for all calculations. File *Zielesny_FromCurveFitti
 
 From the reviews of the 1st edition: *'From curve fitting to machine learning' is ... a useful book. ... It contains the basic formulas of curve fitting and related subjects and throws in, what is missing in so many books, the code to reproduce the results. ... All in all this is an interesting and useful book both for novice as well as expert readers. For the novice it is a good introductory book and the expert will appreciate the many examples and working code.* (Leslie A. Piegl, Zentralblatt MATH, Zbl 1236.68004)
 
-# Information about uploaded files
-**Code**
+**Textbook supplement:**
+
+*Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip* - complete CIP 2.0 examples and applications of 2nd edition of textbook above.
+
+*Zielesny_FromCurveFittingToMachineLearning_Code.zip* - complete CIP 1.0 examples and applications of 1st edition of textbook above.
+
+# Old code and supplement
+**Old code**
 
 *CIP_3.0.zip* (for Mathematica 11 or higher) - CIP 3.0 adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
 
@@ -61,13 +67,7 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *CIP_1.0.zip* (for Mathematica 7 or higher) - CIP 1.0 is the basic operational release.
 
-**Textbook supplementary information**
-
-*Zielesny_FromCurveFittingToMachineLearning_2ndEdition_Code.zip* - complete CIP 2.0 examples and applications of 2nd edition of textbook above.
-
-*Zielesny_FromCurveFittingToMachineLearning_Code.zip* - complete CIP 1.0 examples and applications of 1st edition of textbook above.
-
-**Tutorials and examples**
+**Supplement**
 
 *CIP_3.0_DeepLearningWithMLP.nb* - simple CIP 3.0 deep learning example  (Mathematica notebook that uses CIP 3.0).
 
