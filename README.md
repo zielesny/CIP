@@ -59,7 +59,7 @@ From the reviews of the 1st edition: *'From curve fitting to machine learning' i
 
 *CIP_3.0.zip* (for Mathematica 11 or higher) - CIP 3.0 adds deep multi-layer perceptron-type neural networks, regularization, normalization and minor improvements (see *About.txt*).
 
-*CIP_2.0.zip* (for Mathematica 9 or higher) - CIP 2.0 adds parallelized calculation support and minor improvements (see *About.txt*).
+*CIP_2.0.zip* (for Mathematica 10 or higher) - CIP 2.0 adds parallelized calculation support and minor improvements (see *About.txt*).
 
 *CIP_1.2.zip* (for Mathematica 7 or higher) - CIP 1.2 adds minor improvements (see *About.txt*).
 
