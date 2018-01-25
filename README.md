@@ -29,6 +29,8 @@ The CIP design goals were neither maximum speed nor minimum memory consumption b
 
 *SVM.m* - provides constrained optimization algorithms for support vector machines (SVM). It utilizes Mathematica's FindMaximum (InteriorPoint) or NMaximize (DifferentialEvolution) methods for constrained optimization tasks.
 
+The files in the *Info* folder describe package dependencies (*PackageDependencies.txt*), installation (*InstallationInfo.txt*), new version features (*About.txt*) and provide LGPL license information (*COPYING_GPL.txt* and *COPYING.LESSER_LGPL.txt*).
+
 # Citation
 
 Achim Zielesny, Computational Intelligence Packages (CIP) for Mathematica, Version 3.0, GNWI mbH, Oer-Erkenschwick, Germany, 2018.
