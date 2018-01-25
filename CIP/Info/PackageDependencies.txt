@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------
+Computational Intelligence Packages (CIP)
+Version 3.0 for Mathematica 11 or higher
+--------------------------------------------------------------------------------
+
+Dependencies of CIP packages:
+
+"CIP`Utility`"            basic package, depends solely on 
+                          Mathematica 11 or higher
+
+"CIP`DataTransformation`" depends on {"CIP`Utility`"}
+
+"CIP`Graphics`"           depends on {"CIP`Utility`", "CIP`DataTransformation`"}
+
+"CIP`CalculatedData`"     depends on {"CIP`Utility`", "CIP`DataTransformation`"}
+
+"CIP`Cluster`"            depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`"}
+
+"CIP`ExperimentalData`"   depends on {"CIP`Utility`", "CIP`CurveFit`", 
+                                      "CIP`DataTransformation`"}
+
+"CIP`CurveFit`"           depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", 
+                                      "CIP`CalculatedData`"}
+
+"CIP`MLR`"                depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`MPR`"                depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`MLP`"                depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`MLP1`"               depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`MLP2`"               depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`MLP3`"               depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}
+
+"CIP`SVM`"                depends on {"CIP`Utility`", "CIP`Graphics`", 
+                                      "CIP`DataTransformation`", "CIP`Cluster`"}

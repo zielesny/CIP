@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+Computational Intelligence Packages (CIP)
+Version 3.0 for Mathematica 11 or higher
+--------------------------------------------------------------------------------
+
+Directory
+
+   CIP
+
+must be located in directory 
+
+   <MATHEMATICA-Path>\AddOns\Applications
+
+and can then be referenced from Mathematica notebooks with
+
+   << CIP`<NameOfSpecificPackage>`
+

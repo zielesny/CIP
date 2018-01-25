@@ -1,0 +1,254 @@
+--------------------------------------------------------------------------------
+Computational Intelligence Packages (CIP)
+Version 3.0 for Mathematica 11 or higher
+--------------------------------------------------------------------------------
+
+Authors: Achim Zielesny
+         Kolja Berger (parallelization for CIP 2.0) 
+
+GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
+Oer-Erkenschwick, Germany
+
+Citation:
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
+GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+
+Additional information (based on CIP Version 2.0):
+Achim Zielesny, From Curve Fitting to Machine Learning: An 
+illustrative Guide to scientific Data Analysis and Computational 
+Intelligence, Second Edition, Berlin 2016.
+(Springer: Intelligent Systems Reference Library)
+
+Copyright 2017 Achim Zielesny
+
+The CIP program packages are free software: you can redistribute them and/or 
+modify them under the terms of the GNU Lesser General Public License (LGPL) as 
+published by the Free Software Foundation, version 3 of the License.
+
+The CIP program packages are distributed in the hope that they will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+Lesser General Public License (LGPL) for more details.
+
+You should have received a copy of the GNU Lesser General Public 
+License along with this program. If not, see 
+<http://www.gnu.org/licenses/>. 
+
+--------------------------------------------------------------------------------
+Version 3.0
+
+NOTE: CIP 3.0 is NOT compatible with CIP 2.0 or earlier versions due to numerous 
+rename operations for improved comprehension.
+--------------------------------------------------------------------------------
+
+- Several rename operations for all packages like 
+  2dValue  -> Value2D
+  3dValue  -> Value3D
+  2dOutput -> Output2D
+  3dOutput -> Output3D
+
+- (Earlier) Package Perceptron (renamed to MLP1):
+  - Renamed to MLP1 (Multi-Layer Perceptron with 1 Hidden-Unit Layer or
+    Three-Layer Feed-Forward Neural Network)
+  - Removal of option DataTransformationOptionTargetInterval for training, 
+    see new option Mlp1OptionActivationAndScaling
+  - New option Mlp1OptionActivationAndScaling in 
+    Mlp1OptionsTraining:
+    Activation function may now be chosen for input to hidden and hidden to 
+    output neurons: "Sigmoid" or "Tanh"
+    Corresponding target intervals for scaling of input and output data 
+    have to be defined
+  - New L2 regularization lambda parameter option 
+    Mlp1OptionLambdaL2Regularization for FitMlp1WithFindMinimum and 
+    FitMlp1WithNMinimize 
+  - New cost function option Mlp1OptionCostFunctionType "SquaredError" or 
+    "Cross-Entropy" for FitMlp1WithFindMinimum and FitMlp1WithNMinimize 
+
+- New Package MLP2 (Multi-Layer Perceptron with 2 Hidden-Unit Layers or
+  Four-Layer Feed-Forward Neural Network) corresponding to MLP1, MLP3 and MLP.
+  NOTE: A data fit with MLP2 does ONLY support FindMinimum 
+  (FitMlp2WithFindMinimum) and NMinimize (FitMlp2WithNMinimize) based training
+  (NOT a Backpropagation plus Momentum or a Genetic Algorithm based minimum 
+  detection which are available in MLP1).  
+
+- New Package MLP3 (Multi-Layer Perceptron with 3 Hidden-Unit Layers or
+  Five-Layer Feed-Forward Neural Network) corresponding to MLP1, MLP2 and MLP
+  NOTE: A data fit with MLP3 does ONLY support FindMinimum 
+  (FitMlp3WithFindMinimum) and NMinimize (FitMlp3WithNMinimize) based training
+  (NOT a Backpropagation plus Momentum or a Genetic Algorithm based minimum 
+  detection which are available in MLP1).  
+
+- New Package MLP (Multi-Layer Feed-Forward Neural Network or Perceptron with an 
+  arbitrary number of hidden-neuron layers) corresponding to MLP1, MPL2 and MLP3
+  NOTE: A data fit with MLP does ONLY support FindMinimum 
+  (FitMlpWithFindMinimum) and NMinimize (FitMlpWithNMinimize) based training
+  (NOT a Backpropagation plus Momentum or a Genetic Algorithm based minimum 
+  detection which are available in MLP1).  
+
+- Input normalization related improvements:
+  - Package Utility:
+    - New functions GetMeanAndStandardDeviation and 
+	  GetMeanAndStandardDeviationList
+  - Package DataTransformation:
+    - Internal improvements (GetDataMatrixScaleInfo, GetDataSetScaleInfo, 
+      GetDataSetScaleInfoForTrainingAndTestSet with target interval(s) as passed 
+      function arguments and NOT as an option as before)
+    - DataTransformationOptionsTargetInterval renamed to 
+      DataTransformationOptions
+    - New option DataTransformationOptionNormalizationType
+    - New functions
+      GetDataMatrixNormalizationInfo,
+      GetDataSetNormalizationInfo,
+      NormalizeDataMatrix,
+      NormalizeDataMatrixWithHampelTanh,
+      NormalizeDataMatrixWithHampelTanh01,
+      NormalizeInputsOfDataSet,
+      NormalizeInputsOfTrainingAndTestSet,
+      ScaleAndNormalizeDataMatrix,
+      ScaleAndNormalizeDataSet,
+      ScaleAndNormalizeTrainingAndTestSet
+  - Packages MLR, MPR, MLP1, MLP2, MLP3, MLP and SVM:
+    - New option DataTransformationOptionNormalizationType implemented in all 
+      fit methods and corresponding normalization info in all calculation and 
+      show methods 
+
+
+--------------------------------------------------------------------------------
+Version 2.0
+--------------------------------------------------------------------------------
+
+- Parallelization support:
+  Several CIP functions are extended to support parallelized calculations which
+  may lead to considerable performance improvements on computing devices with
+  multicore processors.
+  
+  Parallelization is defined via
+  UtilityOptionCalculationMode -> "ParallelCalculation"
+  if available (see below). 
+
+  The following packages are extended:
+  
+  ----------------
+  Package Utility:
+  ----------------
+  New option UtilityOptionCalculationMode with settings: 
+  "SequentialCalculation"
+  Default setting for non-parallelized execution.
+  "ParallelCalculation"
+  New setting for parallelized execution. 
+  
+  SetNumberOfParallelKernels[numberOfKernels]:
+  Defines the number of kernels used for parallel processing
+  numberOfKernels = 0 : The number of kernels is defined by $ProcessorCount 
+                        which gives the number of processor cores available on 
+                        the computer system on which Mathematica is being run. 
+  
+  ----------------
+  Package Cluster:
+  ----------------
+  The following functions may be called with
+  UtilityOptionCalculationMode -> "ParallelCalculation":
+
+  - GetSilhouettePlotPoints
+
+  --------------------------------------------
+  Packages Cluster, MLR, MPR, Perceptron, SVM:
+  --------------------------------------------
+  The following functions may be called with
+  UtilityOptionCalculationMode -> "ParallelCalculation":
+
+  - GetBest<FitType>ClassOptimization
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - Get<FitType>InputInclusionClass
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - Get<FitType>InputInclusionRegress
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - Get<FitType>InputRelevanceClass
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - Get<FitType>InputRelevanceRegress
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - ScanClassTrainingWith<FitType> 
+    with
+    <FitType> = Cluster, Mlr, Mpr, Perceptron, Svm 
+
+  - ScanRegressTrainingWith<FitType>
+    with
+    <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+  - Fit<FitType>Series
+    with
+    <FitType> = Mpr, Perceptron, Svm 
+
+  - Get<FitType>TrainOptimization 
+    with
+    <FitType> = Perceptron, Svm 
+
+  - Fit<FitType>
+    with
+    <FitType> = Perceptron, Svm 
+
+- MPR package: New methods
+  FitMprSeries[], GetMprSeriesClassificationResult[], GetMprSeriesRmse[],
+  ShowMprSeriesClassificationResult[] and ShowMprSeriesRmse[]
+
+- New methods Get<FitType>ClassRelevantComponents[] and
+  Get<FitType>RegressRelevantComponents[]
+  with
+  <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+- Minor changes in CurveFit package (method GetSingleFitResult[]) 
+
+
+--------------------------------------------------------------------------------
+Version 1.2
+--------------------------------------------------------------------------------
+
+- New method Get<FitType>RegressionResult 
+  with
+  <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+- Minor changes in Graphics package (method ShowSingleRegressionResult[])
+
+
+--------------------------------------------------------------------------------
+Version 1.1
+--------------------------------------------------------------------------------
+
+- New package MPR (Multiple Polynomial Regression)
+
+- New implementation of Get<FitType>InputInclusionRegress and 
+  Get<FitType>InputInclusionClass
+  with
+  <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+- New experimental QSPR data sets (GetQSPRDataSet01, GetQSPRDataSet02)
+
+- Improved implementation of Get<FitType>InputRelevanceRegress and 
+  Get<FitType>InputRelevanceClass
+  with
+  <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+- Improved implementation of GetBest<FitType>ClassOptimization and 
+  GetBest<FitType>RegressOptimization
+  with
+  <FitType> = Mlr, Mpr, Perceptron, Svm 
+
+- Minor corrections in Graphics package (method GetSingleRegressionResult[])
+
+
+--------------------------------------------------------------------------------
+Version 1.0
+--------------------------------------------------------------------------------
+
+- Basic operational version
+  
