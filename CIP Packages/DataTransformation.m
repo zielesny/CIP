@@ -166,7 +166,8 @@ ScaleDataMatrixReverse::usage =
 
 ScaleAndNormalizeDataSet::usage = 
 	"ScaleAndNormalizeDataSet[dataSet, dataSetScaleInfo, normalizationInfo]"
-	ScaleDataSet::usage = 
+	
+ScaleDataSet::usage = 
 	"ScaleDataSet[dataSet, dataSetScaleInfo]"
 
 ScaleSizeOfImageDataSet::usage = 
