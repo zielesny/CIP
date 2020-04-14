@@ -1,17 +1,17 @@
 (*
 -------------------------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package Support Vector Machines (SVM)
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -------------------------------------------------------------------------------------
 
 Authors: Kolja Berger (parallelization for CIP 2.0), Achim Zielesny 
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
 Code partially based on:
 B. Palancz, L. Voelgyesi, Support Vector Classifier via Mathematica, 
@@ -22,7 +22,7 @@ R. Nilsson, J. Bjoerkegren, Jesper Tegner, A Flexible Implementation
 for Support Vector Machines, The Mathematica Journal 10:1, 2006 
 (Wolfram Media, Inc.).
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -6204,7 +6204,7 @@ ShowSvmOutput3D[
 			};
 		
 		Return[
-			CIP`Graphics`Plot3dFunction[
+			CIP`Graphics`PlotFunction3D[
 				Function[{x1, x2}, CalculateSvmValue3D[x1, x2, indexOfInput1, indexOfInput2, indexOfOutput, input, svmInfo]], 
 				{x1Min, x1Max}, 
 				{x2Min, x2Max}, 
@@ -6699,7 +6699,7 @@ ShowSvmSeriesClassificationResult[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -6727,7 +6727,7 @@ ShowSvmSeriesClassificationResult[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -6803,7 +6803,7 @@ ShowSvmSeriesRmse[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -6830,7 +6830,7 @@ ShowSvmSeriesRmse[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,

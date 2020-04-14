@@ -1,19 +1,19 @@
 (*
 -----------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package Graphics
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -----------------------------------------------------------------------
 
 Author: Achim Zielesny
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -149,47 +149,47 @@ GetRegressRelevantComponents::usage =
 GetSingleRegressionResult::usage = 
 	"GetSingleRegressionResult[namedProperty, dataSet, pureFunction]"
 
-Plot2dFunction::usage = 
-	"Plot2dFunction[pureFunction, argumentRange, functionValueRange, labels, options]"
+PlotFunction2D::usage = 
+	"PlotFunction2D[pureFunction, argumentRange, functionValueRange, labels, options]"
 
-Plot2dFunctions::usage = 
-	"Plot2dFunctions[pureFunctions, argumentRange, functionValueRange, plotStyle, labels, options]"
+PlotFunctions2D::usage = 
+	"PlotFunctions2D[pureFunctions, argumentRange, functionValueRange, plotStyle, labels, options]"
 
-Plot2dLineWithOptionalPoints::usage = 
-	"Plot2dLineWithOptionalPoints[points2D, optionalPoints2D, labels, options]"
+PlotLine2DWithOptionalPoints::usage = 
+	"PlotLine2DWithOptionalPoints[points2D, optionalPoints2D, labels, options]"
 
-Plot2dLineWithOptionalPointsAndMaximumXValue::usage = 
-	"Plot2dLineWithOptionalPointsAndMaximumXValue[points2D, optionalPoints2D, maximumXValue, labels, options]"
+PlotLine2DWithOptionalPointsAndMaximumXValue::usage = 
+	"PlotLine2DWithOptionalPointsAndMaximumXValue[points2D, optionalPoints2D, maximumXValue, labels, options]"
 	
-Plot2dPoints::usage = 
-	"Plot2dPoints[points2D, labels, options]"
+PlotPoints2D::usage = 
+	"PlotPoints2D[points2D, labels, options]"
 
-Plot2dPointsAboveDiagonal::usage = 
-	"Plot2dPointsAboveDiagonal[points2D, labels, options]"
+PlotPoints2DAboveDiagonal::usage = 
+	"PlotPoints2DAboveDiagonal[points2D, labels, options]"
 	
-Plot2dPointsAboveFunction::usage = 
-	"Plot2dPointsAboveFunction[points2D, pureFunction, labels, options]"
+PlotPoints2DAboveFunction::usage = 
+	"PlotPoints2DAboveFunction[points2D, pureFunction, labels, options]"
 
-Plot2dPointsAboveFunctionWithMaximumYValue::usage = 
-	"Plot2dPointsAboveFunctionWithMaximumYValue[points2D, pureFunction, maximumYValue, labels, options]"
+PlotPoints2DAboveFunctionWithMaximumYValue::usage = 
+	"PlotPoints2DAboveFunctionWithMaximumYValue[points2D, pureFunction, maximumYValue, labels, options]"
 
-Plot2dPointsAboveMultipleFunctions::usage = 
-	"Plot2dPointsAboveMultipleFunctions[points2D, pureFunctions, argumentRange, functionValueRange, plotStyle, labels, options]"
+PlotPoints2DAboveMultipleFunctions::usage = 
+	"PlotPoints2DAboveMultipleFunctions[points2D, pureFunctions, argumentRange, functionValueRange, plotStyle, labels, options]"
 
-Plot2dPointsWithOptionalPoints::usage = 
-	"Plot2dPointsWithOptionalPoints[points2D, optionalPoints2D, labels, options]"
+PlotPoints2DWithOptionalPoints::usage = 
+	"PlotPoints2DWithOptionalPoints[points2D, optionalPoints2D, labels, options]"
 
-Plot3dFunction::usage = 
-	"Plot3dFunction[pureFunction, xRange, yRange, labels, options]"
+PlotFunction3D::usage = 
+	"PlotFunction3D[pureFunction, xRange, yRange, labels, options]"
 
-Plot3dPoints::usage = 
-	"Plot3dPoints[points3D, labels, options]"
+PlotPoints3D::usage = 
+	"PlotPoints3D[points3D, labels, options]"
 
 Plot3dDataSet::usage = 
 	"Plot3dDataSet[dataSet3D, labels, options]"
 
-Plot3dPointsWithFunction::usage = 
-	"Plot3dPointsWithFunction[points3D, pureFunction, labels, options]"
+PlotPoints3DWithFunction::usage = 
+	"PlotPoints3DWithFunction[points3D, pureFunction, labels, options]"
 
 Plot3dDataSetWithFunction::usage = 
 	"Plot3dDataSetWithFunction[dataSet3D, pureFunction, labels, options]"
@@ -200,17 +200,17 @@ PlotBarChart::usage =
 PlotGroupedBarChart::usage = 
 	"PlotGroupedBarChart[barValues, labels, options]"
 	
-PlotIndexed2dPoints::usage = 
-	"PlotIndexed2dPoints[yList, x, labels, options]"
+PlotIndexedPoints2D::usage = 
+	"PlotIndexedPoints2D[yList, x, labels, options]"
 	
-PlotIndexed2dLine::usage = 
-	"PlotIndexed2dLine[yList, x, labels, options]"
+PlotIndexedLine2D::usage = 
+	"PlotIndexedLine2D[yList, x, labels, options]"
 
-PlotMultiple2dLines::usage = 
-	"PlotMultiple2dLines[points2DWithPlotStyleList, labels, options]"
+PlotMultipleLines2D::usage = 
+	"PlotMultipleLines2D[points2DWithPlotStyleList, labels, options]"
 
-PlotMultiple2dPoints::usage = 
-	"PlotMultiple2dPoints[points2DWithPlotStyleList, labels, options]"
+PlotMultiplePoints2D::usage = 
+	"PlotMultiplePoints2D[points2DWithPlotStyleList, labels, options]"
 
 PlotResiduals::usage = 
 	"PlotResiduals[residuals, labels, options]"
@@ -218,14 +218,14 @@ PlotResiduals::usage =
 PlotSilhouetteWidths::usage = 
 	"PlotSilhouetteWidths[silhouetteWidths, meanSilhouetteWidth, labels, options]"
 	
-PlotTwoIndexed2dLines::usage = 
-	"PlotTwoIndexed2dLines[yList1, yList2, x, labels, options]"
+PlotTwoIndexedLines2D::usage = 
+	"PlotTwoIndexedLines2D[yList1, yList2, x, labels, options]"
 	
-PlotUpToFour2dLines::usage = 
-	"PlotUpToFour2dLines[points2DRed, points2DGreen, points2DBlue, points2DBlack, labels, options]"
+PlotUpToFourLines2D::usage = 
+	"PlotUpToFourLines2D[points2DRed, points2DGreen, points2DBlue, points2DBlack, labels, options]"
 	
-PlotUpToFour2dPointSets::usage = 
-	"PlotUpToFour2dPointSets[points2DRed, points2DGreen, points2DBlue, points2DBlack, labels, options]"
+PlotUpToFourPoint2DSets::usage = 
+	"PlotUpToFourPoint2DSets[points2DRed, points2DGreen, points2DBlue, points2DBlack, labels, options]"
 
 PlotXyErrorData::usage = 
 	"PlotXyErrorData[xyErrorData, labels, options]"
@@ -627,7 +627,7 @@ GetSingleRegressionResult[
 			singleRegressionResult = {};
 		    Do[
 				deviationsOfComponent = Flatten[absoluteDeviations[[All, k]]];
-				AppendTo[singleRegressionResult, GetResidualsDistribution[deviationsOfComponent, ClusterOptionNumberOfIntervals -> numberOfIntervals]],
+				AppendTo[singleRegressionResult, GetResidualsDistribution[deviationsOfComponent, GraphicsOptionNumberOfIntervals -> numberOfIntervals]],
 		    	
 				{k, numberOfOutputComponents}
 		    ];
@@ -639,7 +639,7 @@ GetSingleRegressionResult[
 			singleRegressionResult = {};
 		    Do[
 				deviationsOfComponent = Flatten[deviationsInPercent[[All, k]]];
-				AppendTo[singleRegressionResult, GetResidualsDistribution[deviationsOfComponent, ClusterOptionNumberOfIntervals -> numberOfIntervals]],
+				AppendTo[singleRegressionResult, GetResidualsDistribution[deviationsOfComponent, GraphicsOptionNumberOfIntervals -> numberOfIntervals]],
 		    	
 				{k, numberOfOutputComponents}
 		    ];
@@ -647,7 +647,7 @@ GetSingleRegressionResult[
 		]
 	];
 
-Plot2dFunction[
+PlotFunction2D[
 
 	(* Displays function y=f(x).
 
@@ -723,7 +723,7 @@ Plot2dFunction[
       	]
 	];
 
-Plot2dFunctions[
+PlotFunctions2D[
 
 	(* Displays multiple functions y=f(x).
 
@@ -801,7 +801,7 @@ Plot2dFunctions[
       	]
 	];
 
-Plot2dLineWithOptionalPoints[
+PlotLine2DWithOptionalPoints[
 
 	(* Displays joined points2D (in black) and optional points2D (in blue)
 
@@ -906,7 +906,7 @@ Plot2dLineWithOptionalPoints[
     	]
 	];
 
-Plot2dLineWithOptionalPointsAndMaximumXValue[
+PlotLine2DWithOptionalPointsAndMaximumXValue[
 
 	(* Displays joined points2D (in black) and optional points2D (in blue). The maximum value of the x-axis is defined.
 
@@ -998,7 +998,7 @@ Plot2dLineWithOptionalPointsAndMaximumXValue[
     	]
 	];
 
-Plot2dPoints[
+PlotPoints2D[
 
 	(* Displays points2D (in blue)
 
@@ -1085,7 +1085,7 @@ Plot2dPoints[
     	]
 	];
 
-Plot2dPointsAboveDiagonal[
+PlotPoints2DAboveDiagonal[
 
 	(* Displays points2D (in blue) above diagonal
 
@@ -1148,7 +1148,7 @@ Plot2dPointsAboveDiagonal[
 		]
 	];
 
-Plot2dPointsAboveFunction[
+PlotPoints2DAboveFunction[
 
 	(* Displays points2D (in blue) above function (in black)
 
@@ -1243,7 +1243,7 @@ Plot2dPointsAboveFunction[
 	    ]
 	];
 
-Plot2dPointsAboveFunctionWithMaximumYValue[
+PlotPoints2DAboveFunctionWithMaximumYValue[
 
 	(* Displays points2D (in blue) above function (in black) with maximum y-value
 
@@ -1325,7 +1325,7 @@ Plot2dPointsAboveFunctionWithMaximumYValue[
 	    ]
 	];
 
-Plot2dPointsAboveMultipleFunctions[
+PlotPoints2DAboveMultipleFunctions[
 
 	(* Displays points2D (in blue) above multiple functions.
 
@@ -1412,7 +1412,7 @@ Plot2dPointsAboveMultipleFunctions[
       	]
 	];
 
-Plot2dPointsWithOptionalPoints[
+PlotPoints2DWithOptionalPoints[
 
 	(* Displays points2D (in black) and optionally points2D (in blue)
 
@@ -1499,7 +1499,7 @@ Plot2dPointsWithOptionalPoints[
 		]
 	];
 
-Plot3dFunction[
+PlotFunction3D[
 
 	(* Plots 3D function y=f(x, y).
 	   
@@ -1576,7 +1576,7 @@ Plot3dFunction[
 		]
 	];
 
-Plot3dPoints[
+PlotPoints3D[
 
 	(* Plots specified points3D in 3D box.
 	   
@@ -1699,7 +1699,7 @@ Plot3dDataSet[
 			];
 	
 		Return[
-			Plot3dPoints[
+			PlotPoints3D[
 				points3D,
 				labels,
 	    		GraphicsOptionDisplayFunction -> displayFunction,
@@ -1712,7 +1712,7 @@ Plot3dDataSet[
 		]
 	];
 
-Plot3dPointsWithFunction[
+PlotPoints3DWithFunction[
 
 	(* Plots specified points3D in 3D box together with specified pure function.
 	   
@@ -1917,7 +1917,7 @@ Plot3dDataSetWithFunction[
 			];
 	
 		Return[
-			Plot3dPointsWithFunction[
+			PlotPoints3DWithFunction[
 				points3D,
 				pureFunction,
 				labels,
@@ -2049,7 +2049,7 @@ PlotGroupedBarChart[
     	]
 	];
 
-PlotIndexed2dPoints[
+PlotIndexedPoints2D[
 
 	(* Displays list plot of list yList (in blue) in interval [1, x]
 
@@ -2119,7 +2119,7 @@ PlotIndexed2dPoints[
     	]
 	];
 
-PlotIndexed2dLine[
+PlotIndexedLine2D[
 
 	(* Displays joined list plot of list yList (in black) in interval [1, x]
 
@@ -2187,7 +2187,7 @@ PlotIndexed2dLine[
     	]
 	];
 
-PlotMultiple2dLines[
+PlotMultipleLines2D[
     
 	(* Displays multiple joined points2D in their individual specified plot.
 
@@ -2317,7 +2317,7 @@ PlotMultiple2dLines[
     	]
 	];
 
-PlotMultiple2dPoints[
+PlotMultiplePoints2D[
     
 	(* Displays multiple points2D in individual specified plot style.
 
@@ -2633,7 +2633,7 @@ PlotSilhouetteWidths[
 		]
 	];
 
-PlotTwoIndexed2dLines[
+PlotTwoIndexedLines2D[
 
 	(* Displays joined list plot of lists yList1 (in blue) and yList2 (in red) in interval [1, x]
 
@@ -2703,7 +2703,7 @@ PlotTwoIndexed2dLines[
     	]
 	];
 
-PlotUpToFour2dLines[
+PlotUpToFourLines2D[
     
 	(* Displays up to 4 joined points2D sets as joined lines in different colours.
 
@@ -2811,7 +2811,7 @@ PlotUpToFour2dLines[
     	]
 	];
 
-PlotUpToFour2dPointSets[
+PlotUpToFourPoint2DSets[
     
 	(* Displays up to 4 points2D sets in different colours.
 
@@ -2960,14 +2960,15 @@ PlotXyErrorData[
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
 	
     	Return[
-    		Plot2dPoints[
+    		PlotPoints2D[
 				xyErrorData[[All, {1, 2}]],
 				labels,
 				GraphicsOptionDisplayFunction -> displayFunction,
 				GraphicsOptionArgumentRange2D -> argumentRange,
 				GraphicsOptionFunctionValueRange2D -> functionValueRange,
 				GraphicsOptionPointSize -> pointSize,
-				GraphicsOptionPointColor -> pointColor
+				GraphicsOptionPointColor -> pointColor,
+				GraphicsOptionImageSize -> imageSize
     		]
     	]
 	];
@@ -3017,7 +3018,7 @@ PlotXyErrorDataAboveFunction[
 	    plotStyle = GraphicsOptionLinePlotStyle/.{opts}/.Options[GraphicsOptionsLinePlotStyle];
 	
 	    Return[
-	    	Plot2dPointsAboveFunction[
+	    	PlotPoints2DAboveFunction[
 				xyErrorData[[All, {1, 2}]],
 	    		pureFunction, 
 	    		labels, 
@@ -3027,7 +3028,8 @@ PlotXyErrorDataAboveFunction[
 				GraphicsOptionImageSize -> imageSize,
 				GraphicsOptionArgumentRange2D -> argumentRange, 
 				GraphicsOptionFunctionValueRange2D -> functionValueRange, 
-				GraphicsOptionLinePlotStyle -> plotStyle  
+				GraphicsOptionLinePlotStyle -> plotStyle,
+				GraphicsOptionImageSize -> imageSize  
 	    	]
 	    ]
 	];
@@ -3080,7 +3082,7 @@ PlotXyErrorDataAboveFunctions[
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
 	
       	Return[
-			Plot2dPointsAboveMultipleFunctions[
+			PlotPoints2DAboveMultipleFunctions[
 				xyErrorData[[All, {1, 2}]],
 				pureFunctions,
 				argumentRange,
@@ -3089,7 +3091,8 @@ PlotXyErrorDataAboveFunctions[
 				labels,
 				GraphicsOptionDisplayFunction -> displayFunction,
 				GraphicsOptionPointSize -> pointSize,
-				GraphicsOptionPointColor -> pointColor
+				GraphicsOptionPointColor -> pointColor,
+				GraphicsOptionImageSize -> imageSize
 			]
       	]
 	];
@@ -3212,7 +3215,7 @@ ShowClassificationScan[
 		testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 		points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 		Print[
-			PlotMultiple2dLines[
+			PlotMultipleLines2D[
 				points2DWithPlotStyleList, 
 				labels,
 				GraphicsOptionImageSize -> imageSize,
@@ -3329,7 +3332,7 @@ ShowInputRelevanceClass[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				PlotMultiple2dLines[
+				PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -3342,7 +3345,7 @@ ShowInputRelevanceClass[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				PlotMultiple2dLines[
+				PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -3406,7 +3409,7 @@ ShowInputRelevanceRegress[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				PlotMultiple2dLines[
+				PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -3419,7 +3422,7 @@ ShowInputRelevanceRegress[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				PlotMultiple2dLines[
+				PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -3510,7 +3513,8 @@ ShowRegressionResult[
     		i,
     		namedProperty,
     		pointColor,
-    		pointSize
+    		pointSize,
+    		imageSize
     	},
 
 		(* ----------------------------------------------------------------------------------------------------
@@ -3518,6 +3522,7 @@ ShowRegressionResult[
 		   ---------------------------------------------------------------------------------------------------- *)
 	    pointSize = GraphicsOptionPointSize/.{opts}/.Options[GraphicsOptionsPoint];
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
+	    imageSize = GraphicsOptionImageSize/.{opts}/.Options[GraphicsOptionsImageSize];
 
     	Do[
     		namedProperty = namedPropertyList[[i]];
@@ -3526,7 +3531,8 @@ ShowRegressionResult[
     			dataSet, 
     			pureFunction,
     			GraphicsOptionPointSize -> pointSize,
-				GraphicsOptionPointColor -> pointColor  			
+				GraphicsOptionPointColor -> pointColor,
+				GraphicsOptionImageSize -> imageSize  			
     		],
     		
     		{i, Length[namedPropertyList]}
@@ -3585,7 +3591,7 @@ ShowRegressionScan[
 		testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 		points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 		Print[
-			PlotMultiple2dLines[
+			PlotMultipleLines2D[
 				points2DWithPlotStyleList, 
 				labels,
 				GraphicsOptionImageSize -> imageSize,
@@ -4053,7 +4059,7 @@ ShowSingleRegressionResult[
 			regressionResult = GetSingleRegressionResult["ModelVsData", dataSet, pureFunction];
 		    Do[
 				Print[
-					Plot2dPointsAboveDiagonal[
+					PlotPoints2DAboveDiagonal[
 						regressionResult[[k]],
 						{
 							StringJoin["Model Out ", ToString[k]],
@@ -4061,7 +4067,8 @@ ShowSingleRegressionResult[
 							StringJoin["Out ", ToString[k], " - Model versus data"]
 						},
 						GraphicsOptionPointSize -> pointSize,
-						GraphicsOptionPointColor -> pointColor
+						GraphicsOptionPointColor -> pointColor,
+						GraphicsOptionImageSize -> imageSize
 					]
 				],
 				
@@ -4085,7 +4092,7 @@ ShowSingleRegressionResult[
 			regressionResult = GetSingleRegressionResult["SortedModelVsData", dataSet, pureFunction];
 		    Do[
 				Print[
-					PlotTwoIndexed2dLines[
+					PlotTwoIndexedLines2D[
 						regressionResult[[k, 1]], 
 						regressionResult[[k, 2]], 
 						Length[regressionResult[[k, 1]]], 
@@ -4113,7 +4120,8 @@ ShowSingleRegressionResult[
 							StringJoin["Out ", ToString[k], " - Absolute residuals"]
 						},
 						GraphicsOptionPointSize -> pointSize,
-						GraphicsOptionPointColor -> pointColor
+						GraphicsOptionPointColor -> pointColor,
+						GraphicsOptionImageSize -> imageSize
 					]
 				],
 				
@@ -4133,7 +4141,8 @@ ShowSingleRegressionResult[
 							StringJoin["Out ", ToString[k], " - Relative residuals"]
 						},
 						GraphicsOptionPointSize -> pointSize,
-						GraphicsOptionPointColor -> pointColor
+						GraphicsOptionPointColor -> pointColor,
+						GraphicsOptionImageSize -> imageSize
 					]
 				],
 				
@@ -4147,7 +4156,7 @@ ShowSingleRegressionResult[
 					"AbsoluteResidualsDistribution", 
 					dataSet, 
 					pureFunction, 
-					ClusterOptionNumberOfIntervals -> numberOfIntervals
+					GraphicsOptionNumberOfIntervals -> numberOfIntervals
 				];
 		    Do[
 				labels = 
@@ -4157,13 +4166,14 @@ ShowSingleRegressionResult[
 						StringJoin["Out ", ToString[k], " - Distribution with ", ToString[Length[regressionResult[[k]]]], " intervals"]
 					};
 				Print[
-					Plot2dLineWithOptionalPoints[
+					PlotLine2DWithOptionalPoints[
 						regressionResult[[k]], 
 						regressionResult[[k]],
 						labels,
 						GraphicsOptionDisplayFunction -> displayFunction,
 						GraphicsOptionPointSize -> pointSize,
 						GraphicsOptionPointColor -> pointColor,
+						GraphicsOptionImageSize -> imageSize,
 						GraphicsOptionArgumentRange2D -> argumentRange2D,
 						GraphicsOptionFunctionValueRange2D -> functionValueRange2D
 					]
@@ -4179,7 +4189,7 @@ ShowSingleRegressionResult[
 					"RelativeResidualsDistribution", 
 					dataSet, 
 					pureFunction, 
-					ClusterOptionNumberOfIntervals -> numberOfIntervals
+					GraphicsOptionNumberOfIntervals -> numberOfIntervals
 				];
 		    Do[
 				labels = 
@@ -4189,13 +4199,14 @@ ShowSingleRegressionResult[
 						StringJoin["Out ", ToString[k], " - Distribution with ", ToString[Length[regressionResult[[k]]]], " intervals"]
 					};
 				Print[
-					Plot2dLineWithOptionalPoints[
+					PlotLine2DWithOptionalPoints[
 						regressionResult[[k]], 
 						regressionResult[[k]],
 						labels,
 						GraphicsOptionDisplayFunction -> displayFunction,
 						GraphicsOptionPointSize -> pointSize,
 						GraphicsOptionPointColor -> pointColor,
+						GraphicsOptionImageSize -> imageSize,
 						GraphicsOptionArgumentRange2D -> argumentRange2D,
 						GraphicsOptionFunctionValueRange2D -> functionValueRange2D
 					]
@@ -4250,7 +4261,7 @@ ShowTrainOptimization[
 		testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 		points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 		Print[
-			CIP`Graphics`PlotMultiple2dLines[
+			CIP`Graphics`PlotMultipleLines2D[
 				points2DWithPlotStyleList, 
 				labels,
 				GraphicsOptionImageSize -> imageSize,

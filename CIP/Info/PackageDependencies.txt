@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 Computational Intelligence Packages (CIP)
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 --------------------------------------------------------------------------------
 
 Dependencies of CIP packages:
@@ -16,6 +16,8 @@ Dependencies of CIP packages:
 
 "CIP`Cluster`"            depends on {"CIP`Utility`", "CIP`Graphics`", 
                                       "CIP`DataTransformation`"}
+
+"CIP`Custom`"             depends on {"CIP`CurveFit`", "CIP`DataTransformation`"}
 
 "CIP`ExperimentalData`"   depends on {"CIP`Utility`", "CIP`CurveFit`", 
                                       "CIP`DataTransformation`"}

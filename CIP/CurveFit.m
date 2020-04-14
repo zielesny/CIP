@@ -1,23 +1,26 @@
 (*
 -----------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package CurveFit
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -----------------------------------------------------------------------
 
 Author: Achim Zielesny
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Code partially based on:
+Smoothing cubic splines code is based on:
+C. H. Reinsch, Smoothing by Spline Functions, Numerische Mathematik 10 
+(1967), 177-183
+and
 G.W. Mueller, Plotprogramme in Basic, Muenchen 1983, pages 68f and 
 program code on page 75f.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -148,6 +151,9 @@ FitCubicSplines::usage =
 FitModelFunction::usage = 
 	"FitModelFunction[xyErrorData, modelFunction, argumentOfModelFunction, parametersOfModelFunction, options]"	
 
+FitModelFunctionWithOutlierRemoval::usage = 
+	"FitModelFunctionWithOutlierRemoval[xyErrorData, modelFunction, argumentOfModelFunction, parametersOfModelFunction, residualsType, numberOfRemovalSteps, finalMedianToleranceFactor, options]"	
+
 GetChiSquare::usage = 
 	"GetChiSquare[xyErrorData, modelFunction, argumentOfModelFunction, parametersOfModelFunction, parameterValues]"	
 
@@ -168,6 +174,12 @@ GetSingleFitResult::usage =
 
 GetStartParameters::usage = 
 	"GetStartParameters[xyErrorData, modelFunction, argumentOfModelFunction, parametersOfModelFunction, parameterIntervals, options]"	
+
+GetStartParametersFromFitResult::usage = 
+	"GetStartParametersFromFitResult[parametersOfModelFunction, curveFitInfo]"	
+
+RemoveOutliers::usage = 
+	"RemoveOutliers[residualsType, xyErrorData, curveFitInfo]"	
 
 ShowBestExponent::usage = 
 	"ShowBestExponent[xyErrorData, minExponent, maxExponent, exponentStepSize, options]"	
@@ -421,11 +433,11 @@ FitCubicSplines[
 		m2 = n2 - 1;
 		p = 0.0;
 		h = xValues[[m1 - 1]] - xValues[[n1 - 1]];
+		h1 = 0.0;
 		f = (yValues[[m1 - 1]] - yValues[[n1 - 1]])/h;
 
 		Do[
 			g = h;
-			h1 = 0.0;
 			h = xValues[[i]] - xValues[[i - 1]];
 			e = f;
 			f = (yValues[[i]] - yValues[[i - 1]])/h;
@@ -635,6 +647,107 @@ FitModelFunction[
 				}
 			}
 		]
+	];
+
+FitModelFunctionWithOutlierRemoval[
+
+	(* Fits linear or nonlinear model function to {x, y, error} data with successive outlier removal (for details see code).
+
+	   Returns:
+	   {curveFitInfo, xyErrorDataWithoutOutliers} *)
+
+    
+    (* {x, y, error} data: {{x1, y1, error1}, {x2, y2, error2}, ...} *)
+    xyErrorData_/;MatrixQ[xyErrorData, NumberQ],
+    
+    (* Model function to be fitted *)
+    modelFunction_,
+    
+    (* Argument of fit model function *)
+    argumentOfModelFunction_,
+    
+    (* Parameters of fit model function : {parameter1, parameter2, ...} *)
+    parametersOfModelFunction_,
+
+	(* Residuals type: "AbsoluteResiduals", "RelativeResiduals" *)
+ 	residualsType_,
+    
+    (* Number of removal steps *)
+    numberOfRemovalSteps_?IntegerQ,
+        
+	(* Options *)
+	opts___
+    
+	] :=
+  
+	Module[
+    
+		{
+			confidenceLevelOfParameterErrors,
+			currentMaxIterations,
+			currentWorkingPrecision,
+			i,
+			method,
+			startParameters,
+			varianceEstimator,
+			curveFitInfo,
+			xyErrorDataInOut,
+			xyErrorDataWithoutOutliers,
+			newStartParameters
+		},
+
+		(* ----------------------------------------------------------------------------------------------------
+		   Options
+		   ---------------------------------------------------------------------------------------------------- *)
+	    confidenceLevelOfParameterErrors = CurveFitOptionConfidenceLevel/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+		currentWorkingPrecision = CurveFitOptionCurrentWorkingPrecision/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+		currentMaxIterations = CurveFitOptionCurrentMaxIterations/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+		startParameters = CurveFitOptionStartParameters/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+		method = CurveFitOptionMethod/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+		varianceEstimator = CurveFitOptionVarianceEstimator/.{opts}/.Options[CurveFitOptionsFitModelFunction];
+
+		curveFitInfo =
+			FitModelFunction[
+				xyErrorData,
+				modelFunction,
+				argumentOfModelFunction,
+				parametersOfModelFunction,
+				CurveFitOptionConfidenceLevel -> confidenceLevelOfParameterErrors,
+				CurveFitOptionCurrentWorkingPrecision -> currentWorkingPrecision,
+				CurveFitOptionCurrentMaxIterations -> currentMaxIterations,
+				CurveFitOptionStartParameters -> startParameters,
+				CurveFitOptionMethod -> method,
+				CurveFitOptionVarianceEstimator -> varianceEstimator
+			];
+
+		xyErrorDataWithoutOutliers = xyErrorData;
+		Do[
+			xyErrorDataInOut = 
+   				RemoveOutliers[
+   					residualsType,
+					xyErrorDataWithoutOutliers, 
+					curveFitInfo
+				];
+			xyErrorDataWithoutOutliers = xyErrorDataInOut[[1]];
+			newStartParameters = GetStartParametersFromFitResult[parametersOfModelFunction, curveFitInfo];
+			curveFitInfo =
+				FitModelFunction[
+					xyErrorDataWithoutOutliers,
+					modelFunction,
+					argumentOfModelFunction,
+					parametersOfModelFunction,
+					CurveFitOptionConfidenceLevel -> confidenceLevelOfParameterErrors,
+					CurveFitOptionCurrentWorkingPrecision -> currentWorkingPrecision,
+					CurveFitOptionCurrentMaxIterations -> currentMaxIterations,
+					CurveFitOptionStartParameters -> newStartParameters,
+					CurveFitOptionMethod -> method,
+					CurveFitOptionVarianceEstimator -> varianceEstimator
+				],
+  			
+			{i, numberOfRemovalSteps}
+		];
+		
+		Return[{curveFitInfo, xyErrorDataWithoutOutliers}]
 	];
 
 GetChiSquare[
@@ -1025,7 +1138,7 @@ GetParameterValuesAtMinimum[
 	(* Returns parameter's values at minimum.
 
 	   Returns: 
-	   {value of parameter 1, value of parameter 1, ...} *)
+	   {value of parameter1, value of parameter2, ...} *)
 	
     (* Parameters of fit model function : {parameter1, parameter2, ...} *)
     parametersOfModelFunction_,
@@ -1075,6 +1188,7 @@ GetSingleFitResult[
 		   "AbsoluteSortedResiduals",
 		   "RelativeSortedResiduals"
 	    } *)
+
  	namedProperty_,
 
     (* {x, y, error} data: {{x1, y1, error1}, {x2, y2, error2}, ...} *)
@@ -1467,7 +1581,8 @@ GetStartParameters[
 	(* Returns "optimum" start parameters in defined intervals.
 
 	   Returns: 
-	   Chi-square *)
+       Start values for parameters of model function of form: 
+       {{parameter1, startValue1}, {parameter2, startValue2}, ...} *)
 	
     (* {x, y, error} data: {{x1, y1, error1}, {x2, y2, error2}, ...} *)
     xyErrorData_/;MatrixQ[xyErrorData, NumberQ],
@@ -1590,6 +1705,40 @@ GetStartParameters[
 		Return[startParameters];
 	];
 
+GetStartParametersFromFitResult[
+
+	(* Returns start parameters from specified fit result.
+
+	   Returns: 
+       Start values for parameters of model function of form: 
+       {{parameter1, startValue1}, {parameter2, startValue2}, ...} *)
+    
+    (* Parameters of fit model function : {parameter1, parameter2, ...} *)
+    parametersOfModelFunction_,
+
+  	(* See "Frequently used data structures" *)
+	curveFitInfo_
+	
+	] :=
+    
+	Module[
+    
+    	{
+    		parameterValuesAtMinimum,
+    		i,
+    		startParameters
+    	},
+
+		parameterValuesAtMinimum = GetParameterValuesAtMinimum[parametersOfModelFunction, curveFitInfo];
+		startParameters = 
+			Table[
+				{parametersOfModelFunction[[i]], parameterValuesAtMinimum[[i]]}, 
+					
+				{i, Length[parametersOfModelFunction]}
+			];
+		Return[startParameters];
+	];
+
 GetWidthOfConfidenceRegion[
 
 	(* Returns width of confidence region for settings.
@@ -1692,6 +1841,114 @@ GetWidthOfConfidenceRegion[
 		Return[
 			parameterConfidenceRegions[[indexOfParameter, 2]] - parameterConfidenceRegions[[indexOfParameter, 1]]
 		]
+	];
+
+RemoveOutliers[
+
+	(* Removes outliers of xyErrorData based on interquartile range (IQR), i.e. smaller than Q1 - 1.5*IQR, greater Q3 + 1.5*IQR
+
+	   Returns:
+	   {xyErrorDataIn,xyErrorDataOut}:
+	   xyErrorDataIn: Data with Q1 - 1.5*IQR <= residuals <= Q3 + 1.5*IQR
+	   xyErrorDataOut: Data with residuals smaller than Q1 - 1.5*IQR or greater Q3 + 1.5*IQR *)
+
+
+	(* Residuals type: "AbsoluteResiduals", "RelativeResiduals" *)
+ 	residualsType_,
+
+    (* {x, y, error} data: {{x1, y1, error1}, {x2, y2, error2}, ...} *)
+    xyErrorData_/;MatrixQ[xyErrorData, NumberQ],
+
+  	(* See "Frequently used data structures" *)
+	curveFitInfo_
+   
+	] :=
+  
+	Module[
+    
+		{
+			argumentOfModelFunction,
+			fitInfo,
+			fitType,
+			i,
+			modelFunction,
+			numberOfParameters,
+			pureFunction,
+			sortedResiduals,
+			xyErrorDataIn,
+			xyErrorDataOut,
+			medianQ1,
+			medianQ3,
+			iqr,
+			lowerLimit,
+			upperLimit,
+			residuals
+		},
+
+		fitType = curveFitInfo[[1]];
+		fitInfo = curveFitInfo[[2]];
+		Switch[fitType,
+			
+			"ModelFunction",
+			modelFunction = fitInfo[[1]];
+			argumentOfModelFunction = fitInfo[[2]];
+			numberOfParameters = Length[fitInfo[[3]]];
+			pureFunction = Function[x, modelFunction/.argumentOfModelFunction -> x],
+			
+			"SmoothingCubicSplines",
+	        pureFunction = Function[x, GetSmoothingCubicSplinesFunctionValue[x, fitInfo]]
+		];
+
+		
+		Switch[residualsType,
+			
+			(* -------------------------------------------------------------------------------- *)
+			"AbsoluteResiduals",
+			residuals =
+				Table[
+					xyErrorData[[i, 2]] - pureFunction[xyErrorData[[i, 1]]],
+					
+					{i, Length[xyErrorData]}
+				],
+			
+			(* -------------------------------------------------------------------------------- *)
+			"RelativeResiduals",
+			residuals =
+				Table[
+					(xyErrorData[[i, 2]] - pureFunction[xyErrorData[[i, 1]]])/xyErrorData[[i, 2]]*100.0,
+					
+					{i, Length[xyErrorData]}
+				]
+		];
+
+		sortedResiduals = Sort[residuals];
+		If[EvenQ[Length[sortedResiduals]],
+			
+			(* Even *)
+			medianQ1 = Median[Take[sortedResiduals, {1, Length[sortedResiduals]/2}]];
+			medianQ3 = Median[Take[sortedResiduals, {Length[sortedResiduals]/2 + 1, Length[sortedResiduals]}]],
+			
+			(* Odd *)
+			medianQ1 = Median[Take[sortedResiduals, {1, (Length[sortedResiduals] - 1)/2 + 1}]];
+			medianQ3 = Median[Take[sortedResiduals, {(Length[sortedResiduals] - 1)/2 + 1, Length[sortedResiduals]}]]
+		];		
+		iqr = medianQ3 - medianQ1;
+		lowerLimit = medianQ1 - 1.5*iqr;
+		upperLimit = medianQ3 + 1.5*iqr;
+		
+		xyErrorDataIn = {};
+		xyErrorDataOut = {}; 
+		Do[
+			If[residuals[[i]] < lowerLimit || residuals[[i]] > upperLimit, 
+				AppendTo[xyErrorDataOut, xyErrorData[[i]]],
+				
+				AppendTo[xyErrorDataIn, xyErrorData[[i]]]
+			],
+
+			{i, Length[xyErrorData]}
+		];
+		
+		Return[{xyErrorDataIn, xyErrorDataOut}]
 	];
 
 ShowBestExponent[
@@ -1817,7 +2074,11 @@ ShowFitResult[
     		namedProperty,
     		pointColor,
     		pointSize,
-    		numberOfIntervals
+    		numberOfIntervals,
+    		imageSize,
+    		argumentRange,
+    		functionValueRange,
+    		plotStyle
     	},
 
 
@@ -1828,7 +2089,10 @@ ShowFitResult[
 	    labels = CurveFitOptionLabels/.{opts}/.Options[CurveFitOptionsFitResult];
 	    pointSize = GraphicsOptionPointSize/.{opts}/.Options[GraphicsOptionsPoint];
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
-
+	    imageSize = GraphicsOptionImageSize/.{opts}/.Options[GraphicsOptionsImageSize];
+	    argumentRange = GraphicsOptionArgumentRange2D/.{opts}/.Options[GraphicsOptionsPlotRange2D];
+	    functionValueRange = GraphicsOptionFunctionValueRange2D/.{opts}/.Options[GraphicsOptionsPlotRange2D];
+	    plotStyle = GraphicsOptionLinePlotStyle/.{opts}/.Options[GraphicsOptionsLinePlotStyle];
     	
     	Do[
     		namedProperty = namedPropertyList[[i]];
@@ -1839,7 +2103,11 @@ ShowFitResult[
     			CurveFitOptionLabels -> labels,
     			GraphicsOptionPointSize -> pointSize,
     			GraphicsOptionPointColor -> pointColor,
-				ClusterOptionNumberOfIntervals -> numberOfIntervals
+				GraphicsOptionNumberOfIntervals -> numberOfIntervals,
+				GraphicsOptionImageSize -> imageSize,
+				GraphicsOptionArgumentRange2D -> argumentRange,
+				GraphicsOptionFunctionValueRange2D -> functionValueRange,
+				GraphicsOptionLinePlotStyle -> plotStyle
     		],
     		
     		{i, Length[namedPropertyList]}
@@ -1899,7 +2167,11 @@ ShowSingleFitResult[
 			parameterConfidenceRegions,
     		pointSize,
     		pointColor,
-    		numberOfIntervals
+    		numberOfIntervals,
+    		imageSize,
+    		argumentRange,
+    		functionValueRange,
+    		plotStyle
 		},
 
 		(* ----------------------------------------------------------------------------------------------------
@@ -1909,6 +2181,10 @@ ShowSingleFitResult[
 	    labels = CurveFitOptionLabels/.{opts}/.Options[CurveFitOptionsFitResult];
 	    pointSize = GraphicsOptionPointSize/.{opts}/.Options[GraphicsOptionsPoint];
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
+	    imageSize = GraphicsOptionImageSize/.{opts}/.Options[GraphicsOptionsImageSize];
+	    argumentRange = GraphicsOptionArgumentRange2D/.{opts}/.Options[GraphicsOptionsPlotRange2D];
+	    functionValueRange = GraphicsOptionFunctionValueRange2D/.{opts}/.Options[GraphicsOptionsPlotRange2D];
+	    plotStyle = GraphicsOptionLinePlotStyle/.{opts}/.Options[GraphicsOptionsLinePlotStyle];
 
 		Switch[namedProperty,
 			
@@ -1916,12 +2192,16 @@ ShowSingleFitResult[
 			"FunctionPlot",
 			fitResult = GetSingleFitResult["PureFunction", xyErrorData, curveFitInfo];
 			Print[
-				CIP`Graphics`Plot2dPointsAboveFunction[
+				CIP`Graphics`PlotPoints2DAboveFunction[
 					xyErrorData[[All, {1, 2}]], 
 					fitResult, 
 					labels,
 					GraphicsOptionPointSize -> pointSize,
-					GraphicsOptionPointColor -> pointColor
+					GraphicsOptionPointColor -> pointColor,
+					GraphicsOptionImageSize -> imageSize,
+					GraphicsOptionArgumentRange2D -> argumentRange,
+					GraphicsOptionFunctionValueRange2D -> functionValueRange,
+					GraphicsOptionLinePlotStyle -> plotStyle
 				]
 			],
 			
@@ -1937,7 +2217,8 @@ ShowSingleFitResult[
 						"Absolute residuals"
 					},
 					GraphicsOptionPointSize -> pointSize,
-					GraphicsOptionPointColor -> pointColor
+					GraphicsOptionPointColor -> pointColor,
+					GraphicsOptionImageSize -> imageSize
 				]
 			],
 			
@@ -1953,7 +2234,8 @@ ShowSingleFitResult[
 						"Relative residuals"
 					},
 					GraphicsOptionPointSize -> pointSize,
-					GraphicsOptionPointColor -> pointColor
+					GraphicsOptionPointColor -> pointColor,
+					GraphicsOptionImageSize -> imageSize
 				]
 			],
 			
@@ -1983,9 +2265,13 @@ ShowSingleFitResult[
 			parameterErrorOutput =
 				Table[
 					{
-						ToString[bestFitParameters[[i]]],
-						ToString[parameterErrors[[i]]],
-						ToString[parameterConfidenceRegions[[i]]]},
+						(* ToString[ScientificForm[bestFitParameters[[i]], 3]],
+						ToString[ScientificForm[parameterErrors[[i]], 3]],
+						ToString[ScientificForm[parameterConfidenceRegions[[i]], 3]]}, *)
+						
+						ScientificForm[bestFitParameters[[i]], 6],
+						ScientificForm[parameterErrors[[i]], 6],
+						ScientificForm[parameterConfidenceRegions[[i]], 6]},
 					
 					{i, Length[bestFitParameters]}
 				];
@@ -2004,7 +2290,8 @@ ShowSingleFitResult[
 			Function[inputs, CalculateOutputs[inputs, curveFitInfo]],
 			GraphicsOptionPointSize -> pointSize,
 			GraphicsOptionPointColor -> pointColor,
-			ClusterOptionNumberOfIntervals -> numberOfIntervals
+			GraphicsOptionNumberOfIntervals -> numberOfIntervals,
+			GraphicsOptionImageSize -> imageSize
 		]
 	];
 

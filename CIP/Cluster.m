@@ -1,17 +1,17 @@
 (*
 -----------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package Cluster
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -----------------------------------------------------------------------
 
 Authors: Kolja Berger (parallelization for CIP 2.0), Achim Zielesny 
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
 Code partially based on:
 G. A. Carpenter, S. Grossberg, D. B. Rosen, ART 2-A: An Adaptive 
@@ -23,7 +23,7 @@ airborne particle shapes from their scanning electron microscopy
 images, Chemometrics and Intelligent Laboratory Systems 25, 367-387, 
 1994.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -4188,6 +4188,7 @@ ShowComponentStatistics[
 	    	componentStatistics,
 	    	displayFunction,
 	    	i,
+	    	imageSize,
 	    	labels,
 	    	numberOfIntervals,
 			functionValueRange2D,
@@ -4200,6 +4201,7 @@ ShowComponentStatistics[
 		   ---------------------------------------------------------------------------------------------------- *)
 	    numberOfIntervals = ClusterOptionNumberOfIntervals/.{opts}/.Options[ClusterOptionsComponentStatistics];
 	    displayFunction = GraphicsOptionDisplayFunction/.{opts}/.Options[GraphicsOptionsDisplayFunction];
+	    imageSize = GraphicsOptionImageSize/.{opts}/.Options[GraphicsOptionsImageSize];
 	    pointSize = GraphicsOptionPointSize/.{opts}/.Options[GraphicsOptionsPoint];
 	    pointColor = GraphicsOptionPointColor/.{opts}/.Options[GraphicsOptionsPoint];
 	    argumentRange2D = GraphicsOptionArgumentRange2D/.{opts}/.Options[GraphicsOptionsPlotRange2D];
@@ -4219,11 +4221,12 @@ ShowComponentStatistics[
 					StringJoin["In ", ToString[indexOfComponentList[[i]]], " : Distribution approximated by ", ToString[componentStatistics[[1]]], " intervals"]
 				};
 			Print[
-				CIP`Graphics`Plot2dLineWithOptionalPoints[
+				CIP`Graphics`PlotLine2DWithOptionalPoints[
 					componentStatistics[[2]], 
 					componentStatistics[[2]], 
 					labels,
 					GraphicsOptionDisplayFunction -> displayFunction,
+					GraphicsOptionImageSize -> imageSize,
 					GraphicsOptionPointSize -> pointSize,
 					GraphicsOptionPointColor -> pointColor,
 					GraphicsOptionArgumentRange2D -> argumentRange2D,
@@ -4258,7 +4261,7 @@ ShowSilhouettePlot[
     	
     	labels = {"Number of clusters", "Mean silhouette width", "Silhouette plot"};
     	Print[
-    		CIP`Graphics`Plot2dLineWithOptionalPoints[silhouettePlotPoints2D, silhouettePlotPoints2D, labels]
+    		CIP`Graphics`PlotLine2DWithOptionalPoints[silhouettePlotPoints2D, silhouettePlotPoints2D, labels]
     	];
 	];
 
@@ -4380,7 +4383,7 @@ ShowSingleClusterResult[
 					{i, Length[sortedClusteringResult]}
 				];
 				Print[
-					CIP`Graphics`Plot2dLineWithOptionalPointsAndMaximumXValue[
+					CIP`Graphics`PlotLine2DWithOptionalPointsAndMaximumXValue[
 					    points,
 					    points,
 					    90.0,
@@ -4408,7 +4411,7 @@ ShowSingleClusterResult[
 				{i, Length[sortedClusteringResult]}
 			];
 			Print[
-				CIP`Graphics`Plot2dLineWithOptionalPoints[
+				CIP`Graphics`PlotLine2DWithOptionalPoints[
 				    points,
 				    points,
 				    {
@@ -4472,7 +4475,7 @@ ShowVigilanceParameterScan[
 		scanPoints = art2aScanInfo[[3]];
 
 		Print[
-			CIP`Graphics`Plot2dLineWithOptionalPoints[
+			CIP`Graphics`PlotLine2DWithOptionalPoints[
 				scanPoints,
 				scanPoints,
 				{

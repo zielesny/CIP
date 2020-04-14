@@ -1,19 +1,19 @@
 (*
 ----------------------------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package Multiple Linear Regression (MLR)
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 ----------------------------------------------------------------------------------------
 
 Authors: Kolja Berger (parallelization for CIP 2.0), Achim Zielesny 
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -3759,7 +3759,7 @@ ShowMlrOutput3D[
 			};
 		
 		Return[
-			CIP`Graphics`Plot3dFunction[
+			CIP`Graphics`PlotFunction3D[
 				Function[{x1, x2}, CalculateMlrValue3D[x1, x2, indexOfInput1, indexOfInput2, indexOfOutput, input, mlrInfo]], 
 				{x1Min, x1Max}, 
 				{x2Min, x2Max}, 

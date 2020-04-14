@@ -1,19 +1,19 @@
 (*
 -----------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package CalculatedData
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -----------------------------------------------------------------------
 
 Author: Achim Zielesny
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -60,11 +60,11 @@ Options[CalculatedDataOptionsDataGeneration] =
 (* ::Section:: *)
 (* Declarations *)
 
-Get3dFunctionBasedDataSet::usage = 
-    "Get3dFunctionBasedDataSet[pureModelFunction, xRange, yRange, numberOfDataPerDimension, standardDeviationRange, options]"
+GetFunction3DBasedDataSet::usage = 
+    "GetFunction3DBasedDataSet[pureModelFunction, xRange, yRange, numberOfDataPerDimension, standardDeviationRange, options]"
 
-Get3dFunctionsBasedDataSet::usage = 
-    "Get3dFunctionsBasedDataSet[modelFunctions, argumentRange1, argumentRange2, numberOfDataPerDimension, standardDeviationRange, options]"
+GetFunction3DsBasedDataSet::usage = 
+    "GetFunction3DsBasedDataSet[modelFunctions, argumentRange1, argumentRange2, numberOfDataPerDimension, standardDeviationRange, options]"
     
 GetDefinedGaussianCloud::usage = 
     "GetDefinedGaussianCloud[cloudDefinition, options]"
@@ -95,7 +95,7 @@ GetXyErrorData::usage =
     
 Begin["`Private`"]
 
-Get3dFunctionBasedDataSet[
+GetFunction3DBasedDataSet[
 
     (* Returns a 3D function (with two arguments) based erroneous data set where inputs are grid points in the 2D input space 
        and corresponding 1D output (function value).
@@ -185,7 +185,7 @@ Get3dFunctionBasedDataSet[
         Return[dataSet];
     ];
 
-Get3dFunctionsBasedDataSet[
+GetFunction3DsBasedDataSet[
 
     (* Returns 3D functions (with two arguments) based erroneous data set where inputs are grid points in the 2D input space.
        Data set gets numberOfDataPerDimension^2 IOPairs.

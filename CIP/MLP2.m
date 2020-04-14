@@ -4,19 +4,19 @@ Computational Intelligence Packages (CIP): Package MLP2
 (Multi-Layer Perceptron with 2 Hidden-Unit Layers 
 or
 Four-Layer Feed-Forward Neural Network)
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 -----------------------------------------------------------------------
 
 Authors: Achim Zielesny 
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -7339,7 +7339,7 @@ ShowMlp2Output2D[
 				"Mlp2 Output"
 			};
 		Print[
-			CIP`Graphics`Plot2dPointsAboveFunction[
+			CIP`Graphics`PlotPoints2DAboveFunction[
 				points, 
 				Function[x, CalculateMlp2Value2D[x, indexOfInput, indexOfFunctionValueOutput, input, mlp2Info]], 
 				labels,
@@ -7421,7 +7421,7 @@ ShowMlp2Output3D[
 			};
 		
 		Return[
-			CIP`Graphics`Plot3dFunction[
+			CIP`Graphics`PlotFunction3D[
 				Function[{x1, x2}, CalculateMlp2Value3D[x1, x2, indexOfInput1, indexOfInput2, indexOfFunctionValueOutput, input, mlp2Info]], 
 				{x1Min, x1Max}, 
 				{x2Min, x2Max}, 
@@ -7917,7 +7917,7 @@ ShowMlp2SeriesClassificationResult[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -7945,7 +7945,7 @@ ShowMlp2SeriesClassificationResult[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -8022,7 +8022,7 @@ ShowMlp2SeriesRmse[
 			testPoints2DWithPlotStyle = {testPoints2D, {Thickness[0.005], Red}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle, testPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -8049,7 +8049,7 @@ ShowMlp2SeriesRmse[
 			trainingPoints2DWithPlotStyle = {trainingPoints2D, {Thickness[0.005], Green}};
 			points2DWithPlotStyleList = {trainingPoints2DWithPlotStyle};
 			Print[
-				CIP`Graphics`PlotMultiple2dLines[
+				CIP`Graphics`PlotMultipleLines2D[
 					points2DWithPlotStyleList, 
 					labels,
 					GraphicsOptionImageSize -> imageSize,
@@ -8118,7 +8118,7 @@ ShowMlp2Training[
 			trainingSetMeanSquaredErrorList = mlp2TrainingResults[[i, 1]];
 			testSetMeanSquaredErrorList = mlp2TrainingResults[[i, 2]];
 			Print[
-		    	CIP`Graphics`PlotUpToFour2dLines[
+		    	CIP`Graphics`PlotUpToFourLines2D[
 		    		testSetMeanSquaredErrorList, {}, trainingSetMeanSquaredErrorList, {}, 
 					labels
 				]

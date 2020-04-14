@@ -1,17 +1,17 @@
 --------------------------------------------------------------------------------
 Computational Intelligence Packages (CIP)
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 --------------------------------------------------------------------------------
 
 Authors: Achim Zielesny
          Kolja Berger (parallelization for CIP 2.0) 
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
 Additional information (based on CIP Version 2.0):
 Achim Zielesny, From Curve Fitting to Machine Learning: An 
@@ -19,7 +19,7 @@ illustrative Guide to scientific Data Analysis and Computational
 Intelligence, Second Edition, Berlin 2016.
 (Springer: Intelligent Systems Reference Library)
 
-Copyright 2017 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 The CIP program packages are free software: you can redistribute them and/or 
 modify them under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -33,6 +33,48 @@ Lesser General Public License (LGPL) for more details.
 You should have received a copy of the GNU Lesser General Public 
 License along with this program. If not, see 
 <http://www.gnu.org/licenses/>. 
+
+--------------------------------------------------------------------------------
+Version 3.1
+
+NOTE: CIP 3.1 is NOT compatible with CIP 3.0 or earlier versions due to numerous 
+rename operations for improved comprehension.
+--------------------------------------------------------------------------------
+
+- New package: Custom
+
+- Several rename operations for all packages like 
+  2dPoints  -> Points2D
+  2dPoint  -> Point2D
+  3dPoints  -> Points3D
+  2dFunctions -> Functions2D
+  2dFunction -> Function2D
+  3dFunction -> Function3D
+  2dLines -> Lines2D
+  2dLine -> Line2D
+
+- New functions:
+  - Package CurveFit: RemoveOutliers, FitModelFunctionWithOutlierRemoval and
+    GetStartParametersFromFitResult
+  - Package DataTransformation: SmoothWithFFT
+
+- Improvements:
+  - Package CurveFit: Options for ShowFitResult and ShowSingleFitResult are
+    extended.
+
+- Removed problems:
+  - Package Graphics: Functions PlotXyErrorData, PlotXyErrorDataAboveFunction, 
+    PlotXyErrorDataAboveFunctions, ShowRegressionResult and 
+    ShowSingleRegressionResult now correctly respond to option 
+    GraphicsOptionImageSize (this option was ignored before).
+  - Package CurveFit: Functions ShowFitResult and ShowSingleFitResult now 
+    correctly respond to option GraphicsOptionImageSize (this option was ignored 
+    before).
+  - Package Cluster: Function ShowComponentStatistics now correctly responds to 
+    option GraphicsOptionImageSize (this option was ignored before). 
+  - Packages Graphics and CurveFit: ClusterOptionNumberOfIntervals is correctly
+    replaced by GraphicsOptionNumberOfIntervals.
+
 
 --------------------------------------------------------------------------------
 Version 3.0

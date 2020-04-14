@@ -1,19 +1,19 @@
 (*
 --------------------------------------------------------------------------
 Computational Intelligence Packages (CIP): Package DataTransformation
-Version 3.0 for Mathematica 11 or higher
+Version 3.1 for Mathematica 11 or higher
 --------------------------------------------------------------------------
 
 Author: Achim Zielesny
 
 GNWI - Gesellschaft fuer naturwissenschaftliche Informatik mbH, 
-Oer-Erkenschwick, Germany
+Dortmund, Germany
 
 Citation:
-Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.0, 
-GNWI mbH (http://www.gnwi.de), Oer-Erkenschwick, Germany, 2018.
+Achim Zielesny, Computational Intelligence Packages (CIP), Version 3.1, 
+GNWI mbH (http://www.gnwi.de), Dortmund, Germany, 2020.
 
-Copyright 2018 Achim Zielesny
+Copyright 2020 Achim Zielesny
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License (LGPL) as 
@@ -177,6 +177,9 @@ ScaleAndNormalizeTrainingAndTestSet::usage =
 
 ScaleTrainingAndTestSet::usage = 
 	"ScaleTrainingAndTestSet[trainingAndTestSet, dataSetScaleInfo]"
+
+SmoothWithFFT::usage = 
+	"SmoothWithFFT[yData, threshold]"
 
 SortClassificationDataSet::usage = 
 	"SortClassificationDataSet[classificationDataSet]"
@@ -2009,6 +2012,39 @@ ScaleTrainingAndTestSet[
 				}
 			]
     	]
+	];
+
+SmoothWithFFT[
+
+	(* Smoothes yData with FFT by removal of frequencies with power smaller than threshold.
+
+	   Returns:
+	   Smoothed yData *)
+
+    
+	(* yData: {y1, y2, ... } *)
+    yData_ /;VectorQ[yData, NumberQ],
+    
+	(* Threshold: Fraction of (powerMax - powerMin) *)    
+    threshold_?NumberQ
+    
+	] :=
+  
+	Module[
+    
+		{i, yDataFFT, yPower, yPowerThreshold},
+    
+		yDataFFT = Fourier[yData];
+        yPower = Abs[yDataFFT];
+        yPowerThreshold = Max[yPower] * threshold; 
+		Do[
+  			If[yPower[[i]] < yPowerThreshold,
+   				yDataFFT[[i]] = 0.0
+			],
+ 			{i, Length[yDataFFT]}
+		];
+
+		Return[Re[InverseFourier[yDataFFT]]]	
 	];
 
 SortClassificationDataSet[
